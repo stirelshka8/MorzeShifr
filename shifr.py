@@ -28,12 +28,21 @@ class MorzeShifr:
         return ' '.join(self.cipher_dictionary)
 
     def decrypt(self, morze = "-. . -"):
-        self.morze = morze
+        self.morze = morze.split(' ')
         self.invert_shifr = {}
+        self.decrypt_dictionary = []
 
         for self.invert_shifr_key, self.invert_shifr_values in self.shifr.items():
             self.invert_shifr[self.invert_shifr_values] = self.invert_shifr_key
 
-        
+        for self.data_morze in self.morze:
+            for self.decrypt_shifr_key, self.decrypt_shifr_values in self.invert_shifr.items():
+                if self.data_morze == self.decrypt_shifr_key:
+                    self.decrypt_dictionary.append(self.decrypt_shifr_values)
+
+        return ''.join(self.decrypt_dictionary)
+
+
+
 crypto = MorzeShifr()
-crypto.decrypt()
+print(crypto.decrypt(crypto.encrypt("съешь этих мягких французских булочек да выпей чаю с кофе")))
