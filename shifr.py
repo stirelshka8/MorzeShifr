@@ -29,7 +29,11 @@ class MorzeShifr:
 
     def decrypt(self, morze = "-. . -"):
         self.morze = morze
-        print(self.morze)
+        self.invert_shifr = {}
 
+        for self.invert_shifr_key, self.invert_shifr_values in self.shifr.items():
+            self.invert_shifr[self.invert_shifr_values] = self.invert_shifr_key
+
+        
 crypto = MorzeShifr()
-print(crypto.decrypt(crypto.encrypt("жопка")))
+crypto.decrypt()
