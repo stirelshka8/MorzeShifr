@@ -45,4 +45,5 @@ class MorzeShifr:
 
 
 crypto = MorzeShifr()
-print(crypto.decrypt(crypto.encrypt("съешь этих мягких французских булочек да выпей чаю с кофе")))
+print(crypto.encrypt("съешь этих мягких французских булочек да выпей чаю с кофе"))
+print(crypto.decrypt(".- -.-"))
