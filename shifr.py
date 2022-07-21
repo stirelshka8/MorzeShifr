@@ -43,7 +43,7 @@ class MorzeShifr:
         return ''.join(self.decrypt_dictionary)
 
 
-
-crypto = MorzeShifr()
-print(crypto.encrypt("съешь этих мягких французских булочек да выпей чаю с кофе"))
-print(crypto.decrypt(".- -.-"))
+if __name__ == '__main__':
+    crypto = MorzeShifr()
+    print(crypto.encrypt("съешь этих мягких французских булочек да выпей чаю с кофе"))
+    print(crypto.decrypt(".- -.-"))
