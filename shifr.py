@@ -41,9 +41,20 @@ class MorzeShifr:
                     self.decrypt_dictionary.append(self.decrypt_shifr_values)
 
         return ''.join(self.decrypt_dictionary)
-
+    
+    def create_key_dictionary(self, shhifr_file = 'key.fsb', check_create = 0):
+        self.check_create = check_create
+        self.shifr_file = shhifr_file
+        with open(self.shifr_file, "w+") as self.open_shifr_file:
+            for self.upd_shifr_key, self.upd_shifr_val  in self.shifr.items():
+                if self.check_create == 0:
+                    self.open_shifr_file.write(f'{str(self.upd_shifr_key)} \n')
+                elif self.check_create == 777:
+                    self.open_shifr_file.write(f'{str(self.upd_shifr_key)} >> {str(self.upd_shifr_val)} \n')
+                else:
+                    self.open_shifr_file.write("Словарь не создан\n")
 
 if __name__ == '__main__':
     crypto = MorzeShifr()
-    print(crypto.encrypt("съешь этих мягких французских булочек да выпей чаю с кофе"))
-    print(crypto.decrypt(".- -.-"))
+    crypto.create_key_dictionary('new_shifr.fsb', 777)
+
