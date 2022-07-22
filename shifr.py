@@ -12,6 +12,7 @@ class MorzeShifr:
         self.text = text.upper()
         self.cipher_dictionary = []
         self.temporary_dictionary = []
+        self.messanger_ecrypt = None
 
         for self.text_brute in self.text:
             self.temporary_dictionary.append(self.text_brute)
@@ -21,16 +22,21 @@ class MorzeShifr:
                 if self.temporary_data == self.shifr_key:
                     if self.check == 0:
                         self.cipher_dictionary.append(self.shifr_values)
+                        self.messanger_ecrypt = "[INFO] Зашифрование завершено"
                     elif self.check == 1:
                         self.cipher_dictionary.append(f"{self.shifr_values} >> {self.shifr_key}")
+                        self.messanger_ecrypt = "[INFO] Зашифрование завершено ЗАШИФРОВАННЫЙ ТЕКСТ >> КЛЮЧ"
                     else:
-                        return "Введен неверный параметр проверки! 0 -проверка отключена, 1 - проверка включена."
+                        self.messanger_ecrypt = "[ERROR] Ошибка зашифрования!"
+                        return "[ERROR] Ошибка зашифрования!"
+
         return ' '.join(self.cipher_dictionary)
 
     def decrypt(self, morze = "-. * -"):
         self.morze = morze.split(' ')
         self.invert_shifr = {}
         self.decrypt_dictionary = []
+        self.messanger_ecrypt = None
 
         for self.invert_shifr_key, self.invert_shifr_values in self.shifr.items():
             self.invert_shifr[self.invert_shifr_values] = self.invert_shifr_key
@@ -39,6 +45,7 @@ class MorzeShifr:
             for self.decrypt_shifr_key, self.decrypt_shifr_values in self.invert_shifr.items():
                 if self.data_morze == self.decrypt_shifr_key:
                     self.decrypt_dictionary.append(self.decrypt_shifr_values)
+                    self.messanger_ecrypt = "[INFO] Расшифрование завершено"
 
         return ''.join(self.decrypt_dictionary)
     
