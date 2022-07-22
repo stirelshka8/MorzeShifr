@@ -45,19 +45,19 @@ class MorzeShifr:
     def create_key_dictionary(self, shhifr_file = 'key.fsb', check_create = 0):
         self.check_create = check_create
         self.shifr_file = shhifr_file
-        self.messanger = None
+        self.messanger_create = None
         with open(self.shifr_file, "w+") as self.open_shifr_file:
             for self.upd_shifr_key, self.upd_shifr_val  in self.shifr.items():
                 if self.check_create == 0:
                     self.open_shifr_file.write(f'{str(self.upd_shifr_key)} \n')
-                    self.messanger = "[INFO] Создан словарь"
+                    self.messanger_create = "[INFO] Создан словарь"
                 elif self.check_create == 777:
                     self.open_shifr_file.write(f'{str(self.upd_shifr_key)} >> {str(self.upd_shifr_val)} \n')
-                    self.messanger = "[INFO] Создан словарь КЛЮЧ >> ЗНАЧЕНИЕ"
+                    self.messanger_create = "[INFO] Создан словарь КЛЮЧ >> ЗНАЧЕНИЕ"
                 else:
-                    self.messanger = "[ERROR] Словарь не создан! Неверный аргумент"
+                    self.messanger_create = "[ERROR] Словарь не создан! Неверный аргумент"
         
-        return self.messanger
+        return self.messanger_create
 
 if __name__ == '__main__':
     crypto = MorzeShifr()
