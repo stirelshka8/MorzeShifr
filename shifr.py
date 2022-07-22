@@ -28,7 +28,7 @@ class MorzeShifr:
                         self.messanger_ecrypt = "[INFO] Зашифрование завершено ЗАШИФРОВАННЫЙ ТЕКСТ >> КЛЮЧ"
                     else:
                         self.messanger_ecrypt = "[ERROR] Ошибка зашифрования!"
-                        return "[ERROR] Ошибка зашифрования!"
+                        return
 
         return ' '.join(self.cipher_dictionary)
 
