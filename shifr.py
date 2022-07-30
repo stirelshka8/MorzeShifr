@@ -7,7 +7,7 @@ class MorzeShifr:
        , " ":"|", "1":"1", "2":"2", "3":"3", "4":"4", "5":"5", "6":"6", "7":"7", "8":"8", "9":"9", "0":"0", ",":","
        , ".":".", "!":"!", "?":"?"}
 
-    def encrypt(self, text='Здесь ничего НЕТ', check = 0):
+    def encrypt(self, text='ВВЕДЕНО ПУСТОе ЗНАЧЕНИЕ', check = 0):
         self.check = check
         self.text = text.upper()
         self.cipher_dictionary = []
@@ -32,7 +32,7 @@ class MorzeShifr:
 
         return ' '.join(self.cipher_dictionary)
 
-    def decrypt(self, morze = "-. * -"):
+    def decrypt(self, morze = ".-- .-- * -.. * -. .--- | .--. ..- ... - .--- * | --.. -. .- ---. * -. .. *"):
         self.morze = morze.split(' ')
         self.invert_shifr = {}
         self.decrypt_dictionary = []
@@ -46,7 +46,6 @@ class MorzeShifr:
                 if self.data_morze == self.decrypt_shifr_key:
                     self.decrypt_dictionary.append(self.decrypt_shifr_values)
                     self.messanger_ecrypt = "[INFO] Расшифрование завершено"
-
         return ''.join(self.decrypt_dictionary)
     
     def create_key_dictionary(self, shhifr_file = 'key.fsb', check_create = 0):
@@ -68,5 +67,5 @@ class MorzeShifr:
 
 if __name__ == '__main__':
     crypto = MorzeShifr()
-    print(crypto.create_key_dictionary())
+    print(crypto.decrypt())
 
