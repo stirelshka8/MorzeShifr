@@ -67,5 +67,6 @@ class MorzeShifr:
 
 if __name__ == '__main__':
     crypto = MorzeShifr()
-    print(crypto.decrypt())
+    print(crypto.encrypt('Шла Саша по шоссе и сосала сушку'))
+    print(crypto.decrypt('---- .-.. .- | ... .- ---- .- | .--. .--- | ---- .--- ... ... * | .. | ... .--- ... .- .-.. .- | ... ..- ---- -.- ..-'))
 
